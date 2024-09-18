@@ -2,14 +2,14 @@
     width: 400px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #f7f7f7;
+    background-color: #a1c1fb;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   .display {
     font-size: 2rem;
-    background-color: #333;
+    background-color: #82a1ad;
     color: white;
     padding: 10px;
     text-align: right;
@@ -22,11 +22,11 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
   }
-  
+
   button {
     padding: 20px;
     font-size: 1.5rem;
-    background-color: #4CAF50;
+    background-color: #419fa8;
     color: white;
     border: none;
     border-radius: 5px;
@@ -34,6 +34,5 @@
   }
   
   button:hover {
-    background-color: #45a049;
+    background-color: #6659f6;
   }
-  

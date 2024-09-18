@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./calculator.scss";
 import Button from "./Button";
 
 function Calculator() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
+  const navigate = useNavigate();
 
   // Xử lý khi nhấn các nút
   const handleClick = (value) => {
@@ -13,8 +15,12 @@ function Calculator() {
       setResult("");
     } else if (value === "=") {
       try {
-        setResult(eval(input));
-      } catch (error) {
+        const calcResult=eval(input);
+        setResult(calcResult);
+        let history=JSON.parse(localStorage.getItem('history'))|| [];
+        history.push({input,result:calcResult});
+        localStorage.setItem('history',JSON.stringify(history));
+          } catch (error) {
         setResult("Error");
       }
     } else {
@@ -44,9 +50,11 @@ function Calculator() {
         <Button value="0" onClick={handleClick} />
         <Button value="/" onClick={handleClick} />
         <Button value="=" onClick={handleClick} />
-        <Button value="C" onClick={handleClick} />
+        <Button value="C" onClick={handleClick} />    
+        <Button value="History" onClick={() => navigate('/history')} />
       </div>
     </div>
+    
   );
 }
 
