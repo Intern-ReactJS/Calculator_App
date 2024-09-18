@@ -11,7 +11,7 @@ function History(props) {
   }, []);
 
     return (
-        <div className="history">
+      <div className="history">
       <h1>History</h1>
       <ul>
         {history.map((item, index) => (

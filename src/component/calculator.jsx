@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./calculator.scss";
 import Button from "./Button";
@@ -9,7 +9,7 @@ function Calculator() {
   const navigate = useNavigate();
 
   // Xử lý khi nhấn các nút
-  const handleClick = (value) => {
+  const handleClick = useMemo(()=>(value) => {
     if (value === "C") {
       setInput("");
       setResult("");
@@ -26,7 +26,7 @@ function Calculator() {
     } else {
       setInput(input + value);
     }
-  };
+  },[input]);
   return (
     <div className="calculator">
       <h1>React Calculator</h1>
